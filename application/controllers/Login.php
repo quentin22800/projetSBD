@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 		$pwd = $_POST['pwd'];
 		$success = $this->users_model->login($login, $pwd);
 		if($success) {
-			echo "connecté";
+			redirect(site_url('requete'));
 		} else {
 			echo "échec";
 		}
