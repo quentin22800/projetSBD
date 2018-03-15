@@ -4,7 +4,7 @@
     	    <div class="col-xs-12">
         	    <div class="form-wrap">
                 <h1>Page de connexion</h1>
-                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="<?php echo site_url('login/connexion') ?>" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
                             <label for="loginform" class="sr-only">Login</label>
                             <input type="text" name="loginform" id="loginform" class="form-control" placeholder="login...">
