@@ -13,10 +13,6 @@
                             <label for="pwd" class="sr-only">Mot de passe</label>
                             <input type="password" name="pwd" id="pwd" class="form-control" placeholder="mot de passe...">
                         </div>
-                        <div class="checkbox">
-                            <span class="character-checkbox" onclick="showPassword()"></span>
-                            <span class="label">Montrer le mot de passe</span>
-                        </div>
                         <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
                     </form>
                     <hr>
