@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-	
 	public function index()	{
 		/*$users = $this->users_model->getUsers();
 		foreach ($users as $user)
