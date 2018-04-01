@@ -16,9 +16,9 @@ class Requete extends CI_Controller {
 
 	private function fillList(){
 		$requests = array(
-			'req1',
-			'req2',
-			'req3');
+			'count personnes divorcées' => 'req1',
+			'sum capital gain' => 'req2',
+			'sum capital loss' => 'req3');
 		return $requests;
 	}
 
@@ -30,5 +30,26 @@ class Requete extends CI_Controller {
 		else if($random < 0){ $signe = -1; };
 		$noise = - $sensitivity * $signe * log(1 - 2 * abs($random));
 		return $noise;
+	}
+
+	public function resultat() {
+		//$this->output->enable_profiler(TRUE);
+		$requete = $_GET['request'];
+		switch($requete){
+			case "req1":
+				$resultat = $this->requetes_model->req1();
+				echo $resultat + $this->generateNoise(1);
+				break;
+			case "req2":
+				$sensitivity = $this->requetes_model->sensitivityReq2();
+				$resultat = $this->requetes_model->req2();
+				echo $resultat + $this->generateNoise($sensitivity);
+				break;
+			case "req3":
+				$sensitivity = $this->requetes_model->sensitivityReq3();
+				$resultat = $this->requetes_model->req3();
+				echo $resultat + $this->generateNoise($sensitivity);
+				break;
+		}
 	}
 }
