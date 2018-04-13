@@ -31,15 +31,12 @@ class Requete extends CI_Controller {
 	}
 
 	public function resultat() {
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		$requete = $_GET['request'];
 		$sensi_count_base = 1;
 		switch($requete){
 			case "req1":
 				$resultat = $this->requetes_model->req1();
-
-				$sensi = $sensi_count_base 
-
 				echo $resultat + $this->generateNoise(1);
 				break;
 			case "req2":

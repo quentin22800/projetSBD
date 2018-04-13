@@ -18,7 +18,7 @@ class Requetes_model extends CI_Model {
 
         public function sensitivityReq2()
         {
-                $this->db->select_max('ABS(capital-gain)', 'max');
+                $this->db->select_max('ABS(`capital-gain`)', 'max');
                 $query = $this->db->get('data');
                 return $query->row()->max;
         }
@@ -32,7 +32,7 @@ class Requetes_model extends CI_Model {
 
         public function sensitivityReq3()
         {
-                $this->db->select_max('ABS(capital-loss)', 'max');
+                $this->db->select_max("ABS(`capital-loss`)", 'max');
                 $query = $this->db->get('data');
                 return $query->row()->max;
         }
