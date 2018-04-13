@@ -5,7 +5,7 @@ class Requetes_model extends CI_Model {
         public function req1()
         {
                 $this->db->from('data');
-                $this->db->where('COLUMN6', 'Divorced');
+                $this->db->where('marital-status', 'Divorced');
                 return $this->db->count_all_results();
         }
 
@@ -18,28 +18,28 @@ class Requetes_model extends CI_Model {
 
         public function sensitivityReq2()
         {
-                $this->db->select_max('ABS(COLUMN11)', 'max');
+                $this->db->select_max('ABS(capital-gain)', 'max');
                 $query = $this->db->get('data');
                 return $query->row()->max;
         }
 
         public function req2()
         {
-                $this->db->select_sum('COLUMN11', 'sum');
+                $this->db->select_sum('capital-gain', 'sum');
                 $query = $this->db->get('data');
                 return $query->row()->sum;
         }
 
         public function sensitivityReq3()
         {
-                $this->db->select_max('ABS(COLUMN12)', 'max');
+                $this->db->select_max('ABS(capital-loss)', 'max');
                 $query = $this->db->get('data');
                 return $query->row()->max;
         }
 
         public function req3()
         {
-                $this->db->select_sum('COLUMN12', 'sum');
+                $this->db->select_sum('capital-loss', 'sum');
                 $query = $this->db->get('data');
                 return $query->row()->sum;
         }

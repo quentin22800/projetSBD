@@ -6,8 +6,6 @@ class Requete extends CI_Controller {
 	public function index(){
 		$data['requests'] = $this->fillList();
 
-		echo $this->generateNoise(1);
-
 		$this->load->view('header.html');
 		$this->load->view('requeteView.php',$data);
 		$this->load->view('footer.html');
@@ -35,9 +33,13 @@ class Requete extends CI_Controller {
 	public function resultat() {
 		//$this->output->enable_profiler(TRUE);
 		$requete = $_GET['request'];
+		$sensi_count_base = 1;
 		switch($requete){
 			case "req1":
 				$resultat = $this->requetes_model->req1();
+
+				$sensi = $sensi_count_base 
+
 				echo $resultat + $this->generateNoise(1);
 				break;
 			case "req2":
