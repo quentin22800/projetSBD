@@ -1,4 +1,4 @@
-### Pré-réquis
+### Pré-requis
 
 Pour fonctionner, notre application a besoin de:
 
