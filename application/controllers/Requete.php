@@ -4,6 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Requete extends CI_Controller {
 
 	public function index(){
+		//on vérifie si un utilisateur est connecté
+		if(!isset($_SESSION['user'])){
+			$this->deconnexion();
+		}
+
 		//données qui rempliront une liste déroulante
 		$data['requests'] = $this->fillList();
 
@@ -11,6 +16,15 @@ class Requete extends CI_Controller {
 		$this->load->view('header.html');
 		$this->load->view('requeteView.php', $data);
 		$this->load->view('footer.html');
+		
+	}
+
+	public function deconnexion(){
+		//supprime la session et ses variables
+		$this->session->sess_destroy();
+
+		//redirection vers la page login
+		redirect(site_url('login'));
 		
 	}
 
@@ -41,6 +55,11 @@ class Requete extends CI_Controller {
 
 	//fonction qui renvoie un résultat à l'utilisateur
 	public function resultat() {
+		//on vérifie si un utilisateur est connecté
+		if(!isset($_SESSION['user'])){
+			$this->deconnexion();
+		}
+
 		$requete = $_GET['request'];
 		$sensi_count_base = 1;
 		$mode = $_GET['mode'];

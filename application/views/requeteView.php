@@ -1,6 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-2">
+			<form action="<?php echo site_url('requete/deconnexion') ?>">
+				<button class="btn btn-danger" type="submit">Déconnexion</button>
+			</form>
 		</div>
 	    <div class="col-xs-8">
 	    	<h3>Choix de la requête</h3>

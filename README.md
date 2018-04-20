@@ -25,4 +25,4 @@ Si vous n'avez rien modifié, il n'existe, en base, qu'un seul utilisateur que v
 - login : kevin
 - password : kevin
 
-Une fois connecté, vous pouvez choisir le mode que vous souhaitez ainsi que la requête. Cliquez ensuite sur le bouton valider, est alors affiché le resultat de la requête avec plus ou moins de bruit.
+Une fois connecté, vous pouvez choisir le mode que vous souhaitez ainsi que la requête. Cliquez ensuite sur le bouton valider, est alors affiché le résultat de la requête avec plus ou moins de bruit.
