@@ -17,9 +17,9 @@ class Requete extends CI_Controller {
 	//retourne un tableau avec les différentes requêtes
 	private function fillList(){
 		$requests = array(
-			'count personnes divorcées' => 'req1',
-			'sum capital gain' => 'req2',
-			'sum capital loss' => 'req3'
+			'Count personnes divorcées' => 'req1',
+			'Sum capital gain' => 'req2',
+			'Sum capital loss' => 'req3'
 		);
 		return $requests;
 	}
