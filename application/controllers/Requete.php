@@ -31,23 +31,42 @@ class Requete extends CI_Controller {
 	}
 
 	public function resultat() {
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		$requete = $_GET['request'];
 		$sensi_count_base = 1;
+		$mode = $_GET['mode'];
 		switch($requete){
 			case "req1":
 				$resultat = $this->requetes_model->req1();
-				echo $resultat + $this->generateNoise(1);
+				$this->requetes_model->request_done_add('req1',$_SESSION['user']);
+				if($mode=="classique"){
+					$sensi = $sensi_count_base * $this->requetes_model->request_done('req1',$_SESSION['user']);
+				} else {
+					$sensi = $sensi_count_base;
+				}
+				echo $resultat + $this->generateNoise($sensi);
 				break;
 			case "req2":
 				$sensitivity = $this->requetes_model->sensitivityReq2();
+				$this->requetes_model->request_done_add('req2',$_SESSION['user']);
+				if($mode=="classique"){
+					$sensi = $sensitivity * $this->requetes_model->request_done('req2',$_SESSION['user']);
+				} else {
+					$sensi = $sensitivity;
+				}
 				$resultat = $this->requetes_model->req2();
-				echo $resultat + $this->generateNoise($sensitivity);
+				echo $resultat + $this->generateNoise($sensi);
 				break;
 			case "req3":
 				$sensitivity = $this->requetes_model->sensitivityReq3();
+				$this->requetes_model->request_done_add('req3',$_SESSION['user']);
+				if($mode=="classique"){
+					$sensi = $sensitivity * $this->requetes_model->request_done('req3',$_SESSION['user']);
+				} else {
+					$sensi = $sensitivity;
+				}
 				$resultat = $this->requetes_model->req3();
-				echo $resultat + $this->generateNoise($sensitivity);
+				echo $resultat + $this->generateNoise($sensi);
 				break;
 		}
 	}

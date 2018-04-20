@@ -44,4 +44,19 @@ class Requetes_model extends CI_Model {
                 return $query->row()->sum;
         }
 
+        public function request_done($req, $user){
+                $this->db->from('request_done');
+                $this->db->where('user', $user);
+                $this->db->where('request', $req);
+                return $this->db->count_all_results();
+        }
+
+        public function request_done_add($req, $user){
+                $data = array(
+                        'request' => $req,
+                        'user' => $user
+                );
+                
+                $this->db->insert('request_done', $data);
+        }
 }

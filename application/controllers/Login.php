@@ -20,6 +20,7 @@ class Login extends CI_Controller {
 		$pwd = $_POST['pwd'];
 		$success = $this->users_model->login($login, $pwd);
 		if($success) {
+			$this->session->set_userdata('user', $login);
 			redirect(site_url('requete'));
 		} else {
 			echo "échec";
